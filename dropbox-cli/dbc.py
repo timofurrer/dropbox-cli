@@ -6,11 +6,9 @@ import threading
 import time
 import ConfigParser
 
+import cli
 from dropbox import client, session, rest
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "cli/cli"))
-
-import cli
 import utils
 
 

@@ -1,3 +1,0 @@
-[submodule "dropbox-cli/cli"]
-	path = dropbox-cli/cli
-	url = https://github.com/timofurrer/cli.git

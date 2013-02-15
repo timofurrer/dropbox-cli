@@ -9,3 +9,8 @@
 
 # token store file
 .token_store.txt
+
+# setuptools files
+build
+dbc.egg-info
+dist

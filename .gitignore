@@ -1,0 +1,11 @@
+# vim swap files
+*.swp
+
+# python bytecode files
+*.pyc
+
+# history files
+*.history
+
+# token store file
+.token_store.txt

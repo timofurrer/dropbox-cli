@@ -28,9 +28,9 @@ def login_required():
     return decorate
 
 
-class DropboxCLI(cli.CLI):
+class DropboxCLI(cli.Cli):
     def __init__(self):
-        cli.CLI.__init__(self, ".dbc.history")
+        cli.Cli.__init__(self, ".dbc.history")
         self._config_file = os.path.join(os.environ["HOME"], ".dbc")
 
         if self._is_first_execution():
@@ -48,20 +48,20 @@ class DropboxCLI(cli.CLI):
         self._watchdog.start()
 
         # register default items
-        self.register_item(cli.CLIItem("login", self.cmd_login, categories=["logged_out"]))
+        self.register_item(cli.CliItem("login", self.cmd_login, categories=["logged_out"]))
 
         # items when session is established
-        self.register_item(cli.CLIItem("logout", self.cmd_logout, categories=["logged_in"]))
-        self.register_item(cli.CLIItem("info", self.cmd_info, categories=["logged_in"]))
-        self.register_item(cli.CLIItem("ls", self.cmd_ls, categories=["logged_in"]))
-        self.register_item(cli.CLIItem("mkdir", self.cmd_mkdir, categories=["logged_in"]))
-        self.register_item(cli.CLIItem("rm", self.cmd_rm, categories=["logged_in"]))
-        self.register_item(cli.CLIItem("mv", self.cmd_mv, categories=["logged_in"]))
-        self.register_item(cli.CLIItem("get", self.cmd_get, categories=["logged_in"]))
-        self.register_item(cli.CLIItem("put", self.cmd_put, subitems=[cli.CLISysPathItem()], categories=["logged_in"]))
+        self.register_item(cli.CliItem("logout", self.cmd_logout, categories=["logged_in"]))
+        self.register_item(cli.CliItem("info", self.cmd_info, categories=["logged_in"]))
+        self.register_item(cli.CliItem("ls", self.cmd_ls, categories=["logged_in"]))
+        self.register_item(cli.CliItem("mkdir", self.cmd_mkdir, categories=["logged_in"]))
+        self.register_item(cli.CliItem("rm", self.cmd_rm, categories=["logged_in"]))
+        self.register_item(cli.CliItem("mv", self.cmd_mv, categories=["logged_in"]))
+        self.register_item(cli.CliItem("get", self.cmd_get, categories=["logged_in"]))
+        self.register_item(cli.CliItem("put", self.cmd_put, subitems=[cli.CliSysPathItem()], categories=["logged_in"]))
 
     def stop(self):
-        cli.CLI.stop(self)
+        cli.Cli.stop(self)
         self._watchdog.stop()
 
     def _read_config_file(self):

@@ -11,6 +11,7 @@ setup(
     author_email="tuxtimo@gmail.com",
     url="http://github.com/timofurrer/dropbox-cli",
     packages=["dbc"],
+    install_requires=["clicore==0.00.01", "dropbox==1.5.1"],
     entry_points={"console_scripts": ["dbc = dbc.main:main"]},
     package_data={"dbc": ["*.md"]}
 )

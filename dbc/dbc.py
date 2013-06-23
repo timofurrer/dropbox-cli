@@ -6,7 +6,7 @@ import threading
 import time
 import ConfigParser
 
-import cli
+import clicore
 from dropbox import client, session, rest
 
 import utils
@@ -28,9 +28,9 @@ def login_required():
     return decorate
 
 
-class DropboxCLI(cli.Cli):
+class DropboxCLI(clicore.Cli):
     def __init__(self):
-        cli.Cli.__init__(self, ".dbc.history")
+        clicore.Cli.__init__(self, ".dbc.history")
         self._config_file = os.path.join(os.environ["HOME"], ".dbc")
 
         if self._is_first_execution():
@@ -48,20 +48,20 @@ class DropboxCLI(cli.Cli):
         self._watchdog.start()
 
         # register default items
-        self.register_item(cli.CliItem("login", self.cmd_login, categories=["logged_out"]))
+        self.register_item(clicore.CliItem("login", self.cmd_login, categories=["logged_out"]))
 
         # items when session is established
-        self.register_item(cli.CliItem("logout", self.cmd_logout, categories=["logged_in"]))
-        self.register_item(cli.CliItem("info", self.cmd_info, categories=["logged_in"]))
-        self.register_item(cli.CliItem("ls", self.cmd_ls, categories=["logged_in"]))
-        self.register_item(cli.CliItem("mkdir", self.cmd_mkdir, categories=["logged_in"]))
-        self.register_item(cli.CliItem("rm", self.cmd_rm, categories=["logged_in"]))
-        self.register_item(cli.CliItem("mv", self.cmd_mv, categories=["logged_in"]))
-        self.register_item(cli.CliItem("get", self.cmd_get, categories=["logged_in"]))
-        self.register_item(cli.CliItem("put", self.cmd_put, subitems=[cli.CliSysPathItem()], categories=["logged_in"]))
+        self.register_item(clicore.CliItem("logout", self.cmd_logout, categories=["logged_in"]))
+        self.register_item(clicore.CliItem("info", self.cmd_info, categories=["logged_in"]))
+        self.register_item(clicore.CliItem("ls", self.cmd_ls, categories=["logged_in"]))
+        self.register_item(clicore.CliItem("mkdir", self.cmd_mkdir, categories=["logged_in"]))
+        self.register_item(clicore.CliItem("rm", self.cmd_rm, categories=["logged_in"]))
+        self.register_item(clicore.CliItem("mv", self.cmd_mv, categories=["logged_in"]))
+        self.register_item(clicore.CliItem("get", self.cmd_get, categories=["logged_in"]))
+        self.register_item(clicore.CliItem("put", self.cmd_put, subitems=[clicore.CliSysPathItem()], categories=["logged_in"]))
 
     def stop(self):
-        cli.Cli.stop(self)
+        clicore.Cli.stop(self)
         self._watchdog.stop()
 
     def _read_config_file(self):

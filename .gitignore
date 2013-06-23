@@ -14,3 +14,6 @@
 build
 dbc.egg-info
 dist
+
+# virtualenv
+dbc-env

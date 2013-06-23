@@ -1,0 +1,6 @@
+argparse==1.2.1
+clicore==0.00.01
+colorful==0.00.02
+dropbox==1.5.1
+observable==0.00.03
+wsgiref==0.1.2

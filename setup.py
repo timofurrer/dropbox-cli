@@ -4,7 +4,7 @@
 from setuptools import setup
 
 setup(
-    name="dbc",
+    name="dropbox-cli",
     version="0.00.01",
     description="cli to manage your dropbox account ",
     author="Timo Furrer",

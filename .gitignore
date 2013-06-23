@@ -12,8 +12,9 @@
 
 # setuptools files
 build
-dbc.egg-info
+dropbox_cli.egg-info/
 dist
+README.rst
 
 # virtualenv
 dbc-env

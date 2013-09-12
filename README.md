@@ -4,7 +4,7 @@
 
 ***
 
-**Auhtor:** Timo Furrer <tuxtimo@gmail.com><br />
+**Author:** Timo Furrer <tuxtimo@gmail.com><br />
 **Version:** 0.00.01<br />
 
 # What is this?
